@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DHVSU Document Request System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #a00;
+      --accent-yellow: #fcd34d;
+      --bg-gray: #f4f4f4;
+      --dark: #222;
+      --white: #fff;
+      --shadow: rgba(0, 0, 0, 0.1);
+      --sidebar-bg: #fff;
+      --sidebar-hover: #007bff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      color: var(--dark);
+      background: url('lay.png') no-repeat center center fixed;
+      background-size: cover;
+      padding-left: 180px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 180px;
+      background: var(--sidebar-bg);
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding: 20px 0;
+      box-shadow: 3px 0 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .sidebar .logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-weight: 700;
+      color: #003366;
+      font-size: 16px;
+      margin-bottom: 40px;
+    }
+
+    .sidebar .logo img {
+      height: 65px;
+      margin-bottom: 8px;
+    }
+
+    .sidebar nav ul {
+      list-style: none;
+      width: 100%;
+      padding: 0;
+    }
+
+    .sidebar nav ul li {
+      padding: 12px 10px;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .sidebar nav ul li a {
+      text-decoration: none;
+      color: #444;
+      font-size: 14px;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidebar nav ul li:hover,
+    .sidebar nav ul li.active {
+      background: var(--sidebar-hover);
+    }
+
+    .sidebar nav ul li:hover a,
+    .sidebar nav ul li.active a {
+      color: white;
+    }
+
+    /* Header */
+    header {
+      background: transparent;
+      text-align: center;
+      padding: 1.5rem 1rem;
+    }
+
+    .logo-text {
+      font-size: 28px;
+      color: var(--accent-yellow);
+      font-weight: 700;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Main content */
+    main {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    main h1 {
+      font-size: 2.25rem;
+      color: var(--accent-yellow);
+      margin-bottom: 2.5rem;
+    }
+
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .card-link {
+      text-decoration: none;
+    }
+
+    .card {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px var(--shadow);
+      width: 280px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px var(--shadow);
+    }
+
+    .card img {
+      width: 48px;
+      margin-bottom: 1rem;
+    }
+
+    .card p {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(0, 0, 0, 0.6);
+      color: var(--white);
+      padding: 2rem;
+      margin-top: 4rem;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .footer-logo {
+      width: 50px;
+    }
+
+    footer a {
+      color: #ccc;
+      text-decoration: underline;
+      font-size: 14px;
+    }
+
+    footer p {
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-left: 0;
+      }
+
+      .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 10px 0;
+      }
+
+      .sidebar .logo {
+        flex-direction: row;
+        font-size: 14px;
+        margin: 0;
+      }
+
+      .sidebar nav ul {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+      }
+
+      .sidebar nav ul li {
+        padding: 8px;
+      }
+
+      .cards-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="logo">
+      <a href="Cog_And_Coe_AdminDashboard.html"><img src="Layout (7).png" alt="Logo" /></a>
+      <span>Salamat</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="Cog_Admin.html">📥<br>Pending</a></li>
+        <li><a href="cogapproved.html">✅<br>Approved</a></li>
+        <li class="active"><a href="cogreject.html">❌<br>Reject</a></li>
+        <li><a href="cogcompletetrans.html">📦<br>Complete</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main>
+    <h1>DHVSU Document Request System</h1>
+    <section class="cards-container">
+      <a href="cog.html" class="card-link" aria-label="Request a Certificate of Grades">
+        <div class="card">
+          <img src="https://img.icons8.com/ios-filled/50/document--v1.png" alt="Grades Icon" />
+          <p>Request a Certificate of Grades</p>
+        </div>
+      </a>
+      <a href="coe.html" class="card-link" aria-label="Request a Certificate of Enrollment">
+        <div class="card">
+          <img src="https://img.icons8.com/ios-filled/50/document--v1.png" alt="Enrollment Icon" />
+          <p>Request a Certificate of Enrollment</p>
+        </div>
+      </a>
+      <a href="studentpagestatus.html" class="card-link" aria-label="Student Request Status">
+        <div class="card">
+          <img src="https://img.icons8.com/ios-filled/50/document--v1.png" alt="Status Icon" />
+          <p>Student Status <br>COG / COE</p>
+        </div>
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div>
+        <img src="Layout (7).png" alt="DHVSU Logo" class="footer-logo" />
+        <p><strong>Registrar - Don Honorio Ventura State University</strong><br />
+        Ground Floor, Admin Bldg, Bacolor, Pampanga</p>
+      </div>
+      <div>
+        <p><strong>Inquiries?</strong><br />
+        Email: <a href="mailto:registrar@dhvsu.edu.ph">registrar@dhvsu.edu.ph</a><br />
+        Contact: (045) 649 - 8050 local 147</p>
+      </div>
+    </div>
+    <p class="copyright">© SALAMAT, DOCX - DHVSU Registrar</p>
+  </footer>
+</body>
+</html>
